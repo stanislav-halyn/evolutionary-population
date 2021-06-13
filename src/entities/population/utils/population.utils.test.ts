@@ -1,8 +1,11 @@
 // Utils
-import { tick } from './population.utils';
+import { tick, generatePopulation } from './population.utils';
+
+// Typings
+import { PopulationT } from '../typings/population.typings';
 
 // Constants
-import { PopulationT } from '../typings/population.typings';
+import { CellStatusesE } from '../constants/population.constants';
 
 describe('population.utils.ts', () => {
   describe('tick()', () => {
@@ -70,6 +73,25 @@ describe('population.utils.ts', () => {
         [0, 0],
         [0, 0],
       ]);
+    });
+  });
+
+  describe('generatePopulation()', () => {
+    test('should return a matrix of population', () => {
+      const rows = 2;
+      const cells = 2;
+
+      const population = generatePopulation({ rows, cells });
+
+      expect(population).toHaveLength(rows);
+
+      population.forEach(row => {
+        expect(row).toHaveLength(cells);
+
+        row.forEach(cell => {
+          expect([CellStatusesE.ALIVE, CellStatusesE.DEAD]).toContain(cell);
+        });
+      });
     });
   });
 });
