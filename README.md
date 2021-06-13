@@ -42,7 +42,6 @@ or
 
 ```
   npm run build
-  npm start
 ```
 
 # Linters
