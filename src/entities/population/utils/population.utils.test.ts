@@ -1,5 +1,5 @@
 // Utils
-import { tick, generatePopulation } from './population.utils';
+import { tick, generatePopulation, isAlive, isDead } from './population.utils';
 
 // Typings
 import { PopulationT } from '../typings/population.typings';
@@ -92,6 +92,26 @@ describe('population.utils.ts', () => {
           expect([CellStatusesE.ALIVE, CellStatusesE.DEAD]).toContain(cell);
         });
       });
+    });
+  });
+
+  describe('isAlive', () => {
+    test('should return true is a cell is alive', () => {
+      expect(isAlive(CellStatusesE.ALIVE)).toBe(true);
+    });
+
+    test('should return false is a cell is dead', () => {
+      expect(isAlive(CellStatusesE.DEAD)).toBe(false);
+    });
+  });
+
+  describe('isDead', () => {
+    test('should return true is a cell is dead', () => {
+      expect(isDead(CellStatusesE.DEAD)).toBe(true);
+    });
+
+    test('should return false is a cell is alive', () => {
+      expect(isDead(CellStatusesE.ALIVE)).toBe(false);
     });
   });
 });

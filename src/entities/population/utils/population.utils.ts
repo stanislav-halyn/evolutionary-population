@@ -13,12 +13,12 @@ import { numberUtils } from '@entities/number';
 /**
  * Returns true if the cell is alive
  */
-const isAlive = (cell: CellT) => cell === CellStatusesE.ALIVE;
+export const isAlive = (cell: CellT) => cell === CellStatusesE.ALIVE;
 
 /**
  * Returns true if the cell is dead
  */
-const isDead = (cell: CellT) => cell === CellStatusesE.DEAD;
+export const isDead = (cell: CellT) => cell === CellStatusesE.DEAD;
 
 /**
  * Gets indexes for the neighbours rows
