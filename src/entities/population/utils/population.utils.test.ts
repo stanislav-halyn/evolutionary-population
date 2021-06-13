@@ -95,7 +95,7 @@ describe('population.utils.ts', () => {
     });
   });
 
-  describe('isAlive', () => {
+  describe('isAlive()', () => {
     test('should return true is a cell is alive', () => {
       expect(isAlive(CellStatusesE.ALIVE)).toBe(true);
     });
@@ -105,7 +105,7 @@ describe('population.utils.ts', () => {
     });
   });
 
-  describe('isDead', () => {
+  describe('isDead()', () => {
     test('should return true is a cell is dead', () => {
       expect(isDead(CellStatusesE.DEAD)).toBe(true);
     });
