@@ -1,5 +1,5 @@
 // Modules
-import { path, equals, sum } from 'ramda';
+import { path, equals, sum, times } from 'ramda';
 
 // Constants
 import { CellStatusesE } from '../constants/population.constants';
@@ -13,12 +13,12 @@ import { numberUtils } from '@entities/number';
 /**
  * Returns true if the cell is alive
  */
-const isAlive = (cell: CellT) => cell === CellStatusesE.ALIVE;
+export const isAlive = (cell: CellT) => cell === CellStatusesE.ALIVE;
 
 /**
  * Returns true if the cell is dead
  */
-const isDead = (cell: CellT) => cell === CellStatusesE.DEAD;
+export const isDead = (cell: CellT) => cell === CellStatusesE.DEAD;
 
 /**
  * Gets indexes for the neighbours rows
@@ -153,3 +153,19 @@ export const tick = (populationMatrix: PopulationT) =>
   populationMatrix.map((row, rowIndex) =>
     row.map((_, cellIndex) => getCellNextStatus({ rowIndex, cellIndex, populationMatrix }))
   );
+
+/**
+ * Randomly generates a population cell
+ */
+const generatePopulationCell = (): CellT => Math.round(Math.random());
+
+/**
+ * Randomly generates a population row
+ */
+const generatePopulationRow = (cells: number) => times(generatePopulationCell, cells);
+
+/**
+ * Generates randomly a population
+ */
+export const generatePopulation = ({ rows, cells }: { rows: number; cells: number }): PopulationT =>
+  times(() => generatePopulationRow(cells), rows);
