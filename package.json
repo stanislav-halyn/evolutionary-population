@@ -1,6 +1,6 @@
 {
   "name": "evolutionary-population",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "./dist/index.ts",
   "scripts": {
     "start:dev": "webpack-dev-server --config ./webpack/webpack.dev.js",
