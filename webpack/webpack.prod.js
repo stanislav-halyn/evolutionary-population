@@ -29,10 +29,10 @@ module.exports = merge(common, {
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: paths.assetsFavicon, to: paths.dist },
-        { from: paths.assetsManifest, to: paths.dist },
-        { from: paths.assetsFonts, to: paths.distFonts },
-        { from: paths.assetsImages, to: paths.distImages },
+        { from: paths.assetsFavicon, to: paths.dist, noErrorOnMissing: true },
+        { from: paths.assetsManifest, to: paths.dist, noErrorOnMissing: true },
+        { from: paths.assetsFonts, to: paths.distFonts, noErrorOnMissing: true },
+        { from: paths.assetsImages, to: paths.distImages, noErrorOnMissing: true },
       ],
     }),
   ],
